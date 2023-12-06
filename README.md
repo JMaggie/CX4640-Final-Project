@@ -1,7 +1,7 @@
 # CX4640-Final-Project
 ---
 Name: Maggie Jiang
-Topic:
+Topic: 33 Accuracy and stability of different types of time-stepping methods. How they are derived and why they are what they are.
 Title: Time Stepping Methods
 ---
 # Time Stepping Method
