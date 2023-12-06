@@ -1,10 +1,10 @@
 # CX4640-Final-Project
 ---
-Name: Name Here
-Topic: Exterior Penalty Function Method
-Title: Background and Application of the Exterior Penalty Function Method
+Name: Maggie Jiang
+Topic:
+Title: Time Stepping Methods
 ---
-# Exterior Penalty Function Method
+# Time Stepping Method
 
 ## Table of Contents
 - [Overview](#Overview)
