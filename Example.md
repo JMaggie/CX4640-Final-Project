@@ -1,5 +1,5 @@
 ---
-Name: Name Here
+Name: Maggie Jiang
 Topic: Exterior Penalty Function Method
 Title: Background and Application of the Exterior Penalty Function Method
 ---
