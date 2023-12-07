@@ -14,10 +14,13 @@ Title: Time Stepping Methods
 - [Penalty Function Options](#Penalty-Function-Options)
 - [References](#References)
 - [Euler's Method](#Eulers-Method)
+    	- [Accuracy](#Accuracy)
   	- [Stability](#Stability)
-  	- Accuracy
-  	- Derivation
+  	- [Derivation](#Derivation)
 - [Runge-Kutta Methods](#Runge-Kutta-Methods)
+      	- [Accuracy](#Accuracy)
+  	- [Stability](#Stability)
+  	- [Derivation](#Derivation)
 - [Conclusion](#References)
 - [Further Reading](#References)
 
@@ -61,6 +64,12 @@ The forward Euler's Method is known derived from the truncated Taylor's Expansio
 ## Runge-Kutta Methods
 
 These are a family of iterative methods that provide more accuracy than Euler's method. The most commonly used is the fourth-order Runge-Kutta method.
+
+### Accuracy
+
+### Stability
+
+### Derivation
 
 ## Implicit Methods
 These involve solving equations at each time step, considering future and past values simultaneously. Implicit methods can be more stable for certain types of problems but may require solving nonlinear algebraic equations at each time step.
