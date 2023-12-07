@@ -36,6 +36,7 @@ Euler's method is an s-step method, which is convergent.
 A psuedocode is given
 
 ...
+$$
 function eulerMethod(f, h, t0, y0, N):
     // Parameters:
     //   f: The function representing the derivative dy/dt in the ODE
@@ -59,6 +60,7 @@ function eulerMethod(f, h, t0, y0, N):
 
     // Return the results
     return t, y
+$$
 ...
 
 ### Stability 
