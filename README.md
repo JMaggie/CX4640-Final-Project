@@ -14,37 +14,46 @@ Title: Time Stepping Methods
 - [Penalty Function Options](#Penalty-Function-Options)
 - [References](#References)
 - [Euler's Method](#Euler's-Method)
+- [Stability](##Stability)
+- [Runge-Kutta Methods](#Runge-Kutta-Methods)
 - [Conclusion](#References)
 - [Further Reading](#References)
 
 ## Time Stepping Methods
 
-Common types of time stepping methods include
+What are time stepping methods
+
+Time-stepping methods, also known as time integration methods, are numerical techniques used in computational mathematics and physics to solve differential equations over a sequence of discrete time steps. These methods are particularly relevant in simulating dynamic systems, where the behavior evolves over time.
+
 
 ## Euler's Method
+The most simple Runge-Kutta method. Family of implicit and explicit method [1]. The forward Euler's method is explicit and the backwards Euler's method is implicit [2,3].
+
 This is a simple and straightforward method where the derivative at the current time step is used to estimate the value at the next time step.
 
-### Euler's Method Stability 
+
+### Stability 
 Euler's method is only conditionally stable. To be stable, the step size has to be very small.
 
-Stability is reliant on growth factor $\abs 1 + \lambda_h  \left| 1 + \lambda_{h} \right| < 1$ However, backwards euler's method also known as implicit euler's method is unconditionally stable. 
+Stability is reliant on growth factor $\left| 1 + \lambda_{h} \right| < 1$. This is because
 
-[1]
+However, backwards euler's method also known as implicit euler's method is unconditionally stable. However, this is because
 
-### Euler's Method Accuracy
+[3]
+
+### Accuracy
 
 Becomes more accurate as h decreases
 [2]
 
-2. https://web.mit.edu/10.001/Web/Course_Notes/Differential_Equations_Notes/node3.html
-### Euler's Method Derivation
-
-### Euler's Method Stability 
+### Derivation
+The forward Euler's Method is known derived from the truncated Taylor's Expansion [2]
 
 
 
-
-1. Illinois Institute of Technology. (n.d). Chapter 4: Stiffness and Stability. http://www.math.iit.edu/~fass/478578_Chapter_4.pdf. 
+1. https://en.wikipedia.org/wiki/Euler_method#:~:text=In%20mathematics%20and%20computational%20science,with%20a%20given%20initial%20value.
+2. Zeltkevic, M. (1998) Massachusetts Institute of Technology. https://web.mit.edu/10.001/Web/Course_Notes/Differential_Equations_Notes/node3.html
+3. Illinois Institute of Technology. (n.d). Chapter 4: Stiffness and Stability. http://www.math.iit.edu/~fass/478578_Chapter_4.pdf. 
 
 
 ## Runge-Kutta Methods
@@ -66,6 +75,8 @@ This is a symplectic integrator often used in physics simulations. It alternates
 
 ## Adams-Bashforth Methods
 These are explicit methods that use past values to predict future values. They are often used for solving ordinary differential equations.
+
+### 6. **Exponential Integrators:**
 
 
 
@@ -120,6 +131,43 @@ Time-stepping methods are numerical techniques used to approximate the solution 
 The choice of a time-stepping method depends on the specific characteristics of the problem at hand. Stiff systems may benefit from implicit methods, while symplectic methods are advantageous for preserving certain physical properties. Adaptive methods offer a compromise between accuracy and computational cost by adjusting the time step size during simulation.
 
 In summary, the accuracy and stability of time-stepping methods are influenced by their formulation, order of accuracy, and the characteristics of the problem being solved. The derivation often involves approximating the solution at future time steps based on the current state and evaluating the trade-offs between accuracy and stability.
+
+Time-stepping methods are numerical techniques used to approximate the solution of ordinary differential equations (ODEs) or partial differential equations (PDEs) over a sequence of discrete time steps. The accuracy and stability of these methods are crucial considerations in numerical simulations, as they impact the reliability and efficiency of the numerical solution. Here, I'll provide an overview of different types of time-stepping methods, their accuracy, stability, and how they are derived:
+
+### 1. **Euler's Method:**
+   - **Accuracy:** First-order accurate.
+   - **Stability:** Conditionally stable. Stable for sufficiently small time steps.
+   - **Derivation:** Based on Taylor series expansion, it approximates the derivative with a forward difference.
+
+### 2. **Runge-Kutta Methods:**
+   - **Accuracy:** Higher-order methods, e.g., RK2, RK4, are more accurate than Euler's method.
+   - **Stability:** Generally conditionally stable. Stability depends on the method and time step.
+   - **Derivation:** Developed by extending Euler's method using weighted averages of multiple function evaluations at different points within a time step.
+
+### 3. **Implicit Methods:**
+   - **Accuracy:** Can be first-order or higher, depending on the method used.
+   - **Stability:** Unconditionally stable for linear problems. Implicit methods are often used for stiff systems.
+   - **Derivation:** Based on solving algebraic equations at each time step, involving future and current values. Backward Euler is a common example.
+
+### 4. **Symplectic Integrators:**
+   - **Accuracy:** Typically higher-order accurate for Hamiltonian systems.
+   - **Stability:** Designed to preserve symplectic structure, ensuring long-term stability in certain problems.
+   - **Derivation:** Derived from symplectic geometry principles, preserving the structure of Hamiltonian systems.
+
+### 5. **Linear Multistep Methods:**
+   - **Accuracy:** Higher-order accurate.
+   - **Stability:** Conditionally stable. Stability depends on the method and time step.
+   - **Derivation:** Combine multiple previous time steps to calculate the next step, using a linear combination. Examples include Adams-Bashforth and Adams-Moulton methods.
+
+### 6. **Exponential Integrators:**
+   - **Accuracy:** High-order accuracy, especially for stiff problems.
+   - **Stability:** Can be unconditionally stable for certain types of problems.
+   - **Derivation:** Based on splitting the linear and nonlinear parts of the differential equation, and exponentiating the linear part.
+
+### Why They Are What They Are:
+The choice of a time-stepping method depends on the specific characteristics of the problem being solved. Implicit methods are often chosen for stiff problems, while symplectic integrators are useful for Hamiltonian systems where energy conservation is critical. The trade-off between accuracy and stability is crucial, and the choice often involves a compromise based on the characteristics of the system and computational resources available.
+
+In summary, the accuracy and stability of time-stepping methods are influenced by their mathematical foundations, and the choice of method should be guided by the specific requirements and characteristics of the problem at hand.
 
 ## Table of Contents
 - [Overview](#Overview)
