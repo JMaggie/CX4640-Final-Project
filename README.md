@@ -31,6 +31,35 @@ The most simple Runge-Kutta method. Family of implicit and explicit method [1]. 
 
 This is a simple and straightforward method where the derivative at the current time step is used to estimate the value at the next time step.
 
+Euler's method is an s-step method, which is convergent.
+
+A psuedocode is given
+
+...
+function eulerMethod(f, h, t0, y0, N):
+    // Parameters:
+    //   f: The function representing the derivative dy/dt in the ODE
+    //   h: The time step size
+    //   t0: Initial time
+    //   y0: Initial value of the dependent variable y(t0)
+    //   N: Number of steps
+
+    // Initialize arrays to store results
+    initialize arrays t and y with size N+1
+
+    // Set initial values
+    t[0] = t0
+    y[0] = y0
+
+    // Euler's method iteration
+    for i from 1 to N:
+        // Update time and compute the next value using the derivative
+        t[i] = t[i-1] + h
+        y[i] = y[i-1] + h * f(t[i-1], y[i-1])
+
+    // Return the results
+    return t, y
+...
 
 ### Stability 
 Euler's method is only conditionally stable. To be stable, the step size has to be very small.
