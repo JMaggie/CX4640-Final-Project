@@ -5,6 +5,70 @@ Title: Time Stepping Methods
 ---
 # Time Stepping Method
 
+## Table of Contents
+- [Overview](#Overview)
+- [Background](#Background)
+- [Penalty Function Method Overview](#Penalty-Function-Method-Overview)
+- [Common Applications](#Common-Applications)
+- [Formulation](#Formulation)
+- [Penalty Function Options](#Penalty-Function-Options)
+- [References](#References)
+- [Euler's Method](#Euler's-Method)
+- [Conclusion](#References)
+- [Further Reading](#References)
+
+## Time Stepping Methods
+
+Common types of time stepping methods include
+
+## Euler's Method
+This is a simple and straightforward method where the derivative at the current time step is used to estimate the value at the next time step.
+
+### Euler's Method Stability 
+Euler's method is only conditionally stable. To be stable, the step size has to be very small.
+
+Stability is reliant on growth factor $\abs 1 + \lambda_h  \left| 1 + \lambda_{h} \right| < 1$ However, backwards euler's method also known as implicit euler's method is unconditionally stable. 
+
+[1]
+
+### Euler's Method Accuracy
+
+Becomes more accurate as h decreases
+[2]
+
+2. https://web.mit.edu/10.001/Web/Course_Notes/Differential_Equations_Notes/node3.html
+### Euler's Method Derivation
+
+### Euler's Method Stability 
+
+
+
+
+1. Illinois Institute of Technology. (n.d). Chapter 4: Stiffness and Stability. http://www.math.iit.edu/~fass/478578_Chapter_4.pdf. 
+
+
+## Runge-Kutta Methods
+
+These are a family of iterative methods that provide more accuracy than Euler's method. The most commonly used is the fourth-order Runge-Kutta method.
+
+## Implicit Methods
+These involve solving equations at each time step, considering future and past values simultaneously. Implicit methods can be more stable for certain types of problems but may require solving nonlinear algebraic equations at each time step.
+
+4. **Symplectic Methods:**
+
+5. **Adaptive Time-Stepping Methods:**
+
+
+## Leapfrog Method
+This is a symplectic integrator often used in physics simulations. It alternates between updating positions and velocities, which can provide good long-term stability for certain systems.
+
+6. **Multistep Methods (e.g., Adams-Bashforth, Adams-Moulton):**
+
+## Adams-Bashforth Methods
+These are explicit methods that use past values to predict future values. They are often used for solving ordinary differential equations.
+
+
+
 Time-stepping methods, also known as time integration methods, are numerical techniques used in computational mathematics and physics to solve differential equations over a sequence of discrete time steps. These methods are particularly relevant in simulating dynamic systems, where the behavior evolves over time.
 
 Common time-stepping methods include:
