@@ -14,7 +14,9 @@ Title: Time Stepping Methods
 - [Penalty Function Options](#Penalty-Function-Options)
 - [References](#References)
 - [Euler's Method](#Euler's-Method)
-- [Stability](##Stability)
+  	- [Stability](##Stability)
+  	- Accuracy
+  	- Derivation
 - [Runge-Kutta Methods](#Runge-Kutta-Methods)
 - [Conclusion](#References)
 - [Further Reading](#References)
