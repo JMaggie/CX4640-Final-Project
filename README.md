@@ -6,13 +6,6 @@ Title: Time Stepping Methods
 # Time Stepping Method
 
 ## Table of Contents
-- [Overview](#Overview)
-- [Background](#Background)
-- [Penalty Function Method Overview](#Penalty-Function-Method-Overview)
-- [Common Applications](#Common-Applications)
-- [Formulation](#Formulation)
-- [Penalty Function Options](#Penalty-Function-Options)
-- [References](#References)
 - [Euler's Method](#Eulers-Method)
   	- [Accuracy](#Accuracy)
   	- [Stability](#Stability)
@@ -21,6 +14,8 @@ Title: Time Stepping Methods
       	- [Accuracy](#Accuracy)
   	- [Stability](#Stability)
   	- [Derivation](#Derivation)
+  	- 
+- [Sympletic Integrator](#Sympletic-Integrator)
 - [Conclusion](#References)
 - [Further Reading](#References)
 
@@ -74,13 +69,50 @@ These are a family of iterative methods that provide more accuracy than Euler's 
 ## Implicit Methods
 These involve solving equations at each time step, considering future and past values simultaneously. Implicit methods can be more stable for certain types of problems but may require solving nonlinear algebraic equations at each time step.
 
-4. **Symplectic Methods:**
+## Symplectic Methods
+
+Symplectic methods are a class of numerical integration techniques specifically designed to preserve the symplectic structure of Hamiltonian systems in physics and mechanics. Hamiltonian systems arise in classical mechanics, where they describe the motion of particles subject to conservative forces. The symplectic structure in these systems involves the preservation of certain geometric properties, such as phase space volume, which is crucial for capturing the qualitative behavior of the system accurately.
+
+
+Geometric integrator
+
+https://en.wikipedia.org/wiki/Symplectic_integrator
+https://en.wikipedia.org/wiki/Geometric_integrator
+
+A geometric integrator is a type of numerical integration method designed to preserve certain geometric or structural properties of a dynamic system over time. These methods are particularly useful when simulating systems that exhibit symplectic structure, conservation laws, or other geometric properties.
+
+Here are some key characteristics of geometric integrators:
+
+Preservation of Geometric Properties:
+
+Geometric integrators are designed to preserve specific geometric structures or invariants of a system. Examples include conserving energy, momentum, angular momentum, or other quantities that should remain constant in an idealized system.
+Long-Term Stability:
+
+They often exhibit good long-term stability, making them suitable for simulations over extended periods without significant accumulation of numerical errors. This is especially beneficial in problems where stability is crucial, such as in celestial mechanics.
+Symplectic Integration:
+
+Many geometric integrators are symplectic, meaning they preserve the symplectic structure of Hamiltonian systems. Hamiltonian systems are common in classical mechanics and describe systems with conservation laws.
+Structure-Preserving Properties:
+
+Geometric integrators aim to retain the qualitative behavior of the exact solution, even if the numerical solution may deviate quantitatively. This is important for capturing the essential features of a system.
+Applications:
+
+Geometric integrators are commonly used in physics, astronomy, molecular dynamics, and other scientific fields where the preservation of geometric properties is critical for the accuracy of the simulation.
+Examples:
+
+Some examples of geometric integrators include the Verlet algorithm for molecular dynamics, the Stoermer-Verlet method, and various symplectic integrators like the leapfrog method.
+The choice of a geometric integrator depends on the specific geometric properties of the system being simulated. While these methods offer advantages in terms of preserving certain features, they may not always be the most accurate for all types of problems. The trade-off between accuracy and preservation of geometric properties is an important consideration when selecting a numerical integration method for a particular application.
 
 5. **Adaptive Time-Stepping Methods:**
 
 
 ## Leapfrog Method
 This is a symplectic integrator often used in physics simulations. It alternates between updating positions and velocities, which can provide good long-term stability for certain systems.
+
+Global Stability
+
+https://young.physics.ucsc.edu/115/leapfrog.pdf
+
 
 6. **Multistep Methods (e.g., Adams-Bashforth, Adams-Moulton):**
 
