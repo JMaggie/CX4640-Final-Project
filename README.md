@@ -12,7 +12,7 @@ Title: Time Stepping Methods
   	- [Stability](#Stability)
   	- [Derivation](#Derivation)
 - [Runge-Kutta Methods](#Runge-Kutta-Methods)
-      	- [Accuracy](#Accuracy)
+  	- [Accuracy](#Accuracy)
   	- [Stability](#Stability)
   	- [Derivation](#Derivation)
   	- 
