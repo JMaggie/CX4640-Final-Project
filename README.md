@@ -31,8 +31,8 @@ Explicity and Implicit methods are the most common
 Euler's method, which is a Runge-Kutta Method is the most common explicit method of evaluating ODEs [1]. Euler's method is first order [1]. A method is considered a "first-order method" if its rate of convergence or accuracy is proportional to the size of the discretization parameter raised to the first power. The order of a method is an indicator of how quickly the numerically computed solution approaches the true solution as the step size decreases. Euler's method is an s-step method, which is convergent [3]. In a convergent method, the numerically computed solution approaches the true solution as the step size approaches 0 [1]. A convergent method is consistent and stable [3]. 
 
 Euler's method is a simple and straightforward method where the derivative at the current time step is used to estimate the value at the next time step. 
-\[y_{n+1} = y_{n} + h f(t_n,y_n)\], where
- \(y_n\) is the numerical approximation of \(y(t_n)\) at time \(t_n\), \(h\) is the time step size, and \(f(t_n, y_n)\) is the slope of the solution at time \(t_n\).
+$$y_{n+1} = y_{n} + h f(t_n,y_n)$$, where
+ $$y_n$$ is the numerical approximation of $$y(t_n)$$ at time $$t_n$$, $$h$$ is the time step size, and $$f(t_n, y_n)$$ is the slope of the solution at time $$t_n$$.
 
 The method can be summarized in the following steps:
 
