@@ -22,7 +22,7 @@ Title: Time Stepping Methods
 
 ## Time Stepping Methods
 
-Time-stepping methods, also known as time integration methods or time-marching methods, are numerical techniques used to solve ordinary differential equations (ODEs) or partial differential equations (PDEs) that model dynamic systems evolving over time. These methods discretize the time domain into a sequence of time steps, updating the solution at each time step based on the information from the previous steps. 
+Time-stepping methods, also known as time integration methods or time-marching methods, are numerical techniques used to solve ordinary differential equations (ODEs) or partial differential equations (PDEs) that model dynamic systems evolving over time. These methods discretize the time domain into a sequence of time steps, updating the solution at each time step based on the information from the previous steps. Some of these methods include Euler's Method, Runge-Kutta Methods, Symplectic Methods, Leap-Frog Method, and Crank-Nicolson Method
 
 ## Explicit vs Implicit
 Explicity and Implicit methods are the most common 
@@ -47,9 +47,9 @@ The method can be summarized in the following steps:
    - Repeat the iteration until the desired endpoint or time is reached.
 
 ### Stability 
-Euler's method is only conditionally stable. To be stable, the step size has to be very small. This can be seen when one observes a linear value problem, where $y'(t) = \lambda y(t)$
+Euler's method is only conditionally stable. To be stable, the step size has to be very small. This can be seen when one observes a linear initial value problem, where $y'(t) = \lambda y(t)$ and $y(0) = y_0$. The solution to this problem is $y(t) = y_0 e^(\lambda t)$. However, if the initial conditions are changed from $y(0) = y_0$ to $y(0) = y_0 + \delta$, the solution becomes $y(t) = (y_0 + delta) e^(\lambda * t) [3]. As $e^(\lambda * t)$ is exponential, 
 
-For a given example with $\lambda < 0$, the to be stable, the growth factor would have to be constrained as such $\left| 1 + \lambda_{h} \right| < 1$ to account for amplification of error. One can see the 
+For a given example with $\lambda < 0$, the to be stable, the growth factor would have to be constrained as such $\left| 1 + \lambda_{h} \right| < 1$ to account for amplification of error. One can see the  [1,3]
 
 However, backwards euler's method also known as implicit euler's method is unconditionally stable. However, this is because
 
@@ -73,14 +73,39 @@ The forward Euler's Method is known derived from the truncated Taylor's Expansio
 
 These are a family of iterative methods that provide more accuracy than Euler's method. The most commonly used is the fourth-order Runge-Kutta method.
 
+The general form of a Runge-Kutta method involves several stages of computation per time step. The fourth-order Runge-Kutta method (RK4) is widely applied due to its good balance between accuracy and computational efficiency. The RK4 method is defined by the following update formula for each time step:
+
+1. **Stage 1:**
+   \[ k_1 = h \cdot f(t_n, y_n) \]
+
+2. **Stage 2:**
+   \[ k_2 = h \cdot f(t_n + \frac{h}{2}, y_n + \frac{k_1}{2}) \]
+
+3. **Stage 3:**
+   \[ k_3 = h \cdot f(t_n + \frac{h}{2}, y_n + \frac{k_2}{2}) \]
+
+4. **Stage 4:**
+   \[ k_4 = h \cdot f(t_n + h, y_n + k_3) \]
+
+5. **Update Formula:**
+   \[ y_{n+1} = y_n + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4) \]
+
+where - \(t_n\) is the current time,
+- \(y_n\) is the numerical approximation of the solution at time \(t_n\),
+- \(h\) is the time step,
+- \(f(t, y)\) is the derivative function specifying the ODE.
+
+The RK4 method uses a weighted average of the four stages to update the numerical solution at each time step. The method is known for its accuracy and stability, and it is widely used in various applications.
+
+There are other variants of the Runge-Kutta method with different orders (e.g., RK2, RK3), and the choice of method depends on the specific requirements of the problem and the desired trade-off between accuracy and computational cost.
+
+
 ### Accuracy
 
 ### Stability
 
 ### Derivation
 
-## Implicit Methods
-These involve solving equations at each time step, considering future and past values simultaneously. Implicit methods can be more stable for certain types of problems but may require solving nonlinear algebraic equations at each time step.
 
 ## Symplectic Methods
 
@@ -116,9 +141,6 @@ Examples:
 Some examples of geometric integrators include the Verlet algorithm for molecular dynamics, the Stoermer-Verlet method, and various symplectic integrators like the leapfrog method.
 The choice of a geometric integrator depends on the specific geometric properties of the system being simulated. While these methods offer advantages in terms of preserving certain features, they may not always be the most accurate for all types of problems. The trade-off between accuracy and preservation of geometric properties is an important consideration when selecting a numerical integration method for a particular application.
 
-5. **Adaptive Time-Stepping Methods:**
-
-
 ## Leapfrog Method
 This is a symplectic integrator often used in physics simulations. It alternates between updating positions and velocities, which can provide good long-term stability for certain systems.
 
@@ -126,13 +148,12 @@ Global Stability
 
 https://young.physics.ucsc.edu/115/leapfrog.pdf
 
-
-6. **Multistep Methods (e.g., Adams-Bashforth, Adams-Moulton):**
-
-## Adams-Bashforth Methods
+## Adams-Bashforth and Adams-Moulton Methods
 These are explicit methods that use past values to predict future values. They are often used for solving ordinary differential equations.
 
-### 6. **Exponential Integrators:**
+## Backward Differentiation Formula Methods
+
+## Richardson Extrapolation
 
 
 
