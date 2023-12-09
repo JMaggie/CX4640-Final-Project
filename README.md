@@ -6,6 +6,7 @@ Title: Time Stepping Methods
 # Time Stepping Method
 
 ## Table of Contents
+- [Time Stepping Method]
 - [Euler's Method](#Eulers-Method)
   	- [Accuracy](#Accuracy)
   	- [Stability](#Stability)
@@ -21,19 +22,42 @@ Title: Time Stepping Methods
 
 ## Time Stepping Methods
 
-What are time stepping methods
+Time-stepping methods, also known as time integration methods or time-marching methods, are numerical techniques used to solve ordinary differential equations (ODEs) or partial differential equations (PDEs) that model dynamic systems evolving over time. These methods discretize the time domain into a sequence of time steps, updating the solution at each time step based on the information from the previous steps. 
 
-Time-stepping methods, also known as time integration methods, are numerical techniques used in computational mathematics and physics to solve differential equations over a sequence of discrete time steps. These methods are particularly relevant in simulating dynamic systems, where the behavior evolves over time.
-
+## Explicit vs Implicit
+Explicity and Implicit methods are the most common 
 
 ## Euler's Method
-The most simple Runge-Kutta method. Family of implicit and explicit method [1]. The forward Euler's method is explicit and the backwards Euler's method is implicit [2,3].
+Euler's method, which is a Runge-Kutta Method is the most common explicit method of evaluating ODEs [1]. Euler's method is first order [1]. A method is considered a "first-order method" if its rate of convergence or accuracy is proportional to the size of the discretization parameter raised to the first power. The order of a method is an indicator of how quickly the numerically computed solution approaches the true solution as the step size decreases. Euler's method is an s-step method, which is convergent [3]. In a convergent method, the numerically computed solution approaches the true solution as the step size approaches 0 [1]. A convergent method is consistent and stable [3]. 
 
-This is a simple and straightforward method where the derivative at the current time step is used to estimate the value at the next time step.
+Euler's method is a simple and straightforward method where the derivative at the current time step is used to estimate the value at the next time step. 
+\[y_{n+1} = y_{n} + h f(t_n,y_n)\], where
+ \(y_n\) is the numerical approximation of \(y(t_n)\) at time \(t_n\), \(h\) is the time step size, and \(f(t_n, y_n)\) is the slope of the solution at time \(t_n\).
 
-Euler's method is an s-step method, which is convergent.
+The method can be summarized in the following steps:
 
-A psuedocode is given
+1. **Initialization:**
+   - Start with the initial condition: \(y_0\) at \(t_0\).
+
+2. **Iteration:**
+   - At each time step \(t_n\), use the update formula:
+     \[ y_{n+1} = y_n + h \cdot f(t_n, y_n) \]
+   - Move to the next time step: \(t_{n+1} = t_n + h\).
+
+3. **Repeat:**
+   - Repeat the iteration until the desired endpoint or time is reached.
+
+Euler's method is straightforward to implement and provides a basic understanding of numerical methods for solving ODEs. However, it has limitations, especially for stiff ODEs or problems with rapidly changing solutions, where smaller step sizes may be required to maintain accuracy. More advanced methods, such as Runge-Kutta methods, are often used when higher accuracy is needed.
+
+
+
+
+
+The Euler method is a first-order method, which means that the local error (error per step) is proportional to the square of the step size, and the global error (error at a given time) is proportional to the step size. The Euler method often serves as the basis to construct more complex methods, e.g., predictor–corrector method.
+
+
+
+A psuedocode is given 
 
 ...
 $$
@@ -66,9 +90,7 @@ $$
 ...
 
 ### Stability 
-Euler's method is only conditionally stable. To be stable, the step size has to be very small.
-
-Stability is reliant on growth factor $\left| 1 + \lambda_{h} \right| < 1$. This is because
+Euler's method is only conditionally stable. To be stable, the step size has to be very small. Stability is reliant on growth factor $\left| 1 + \lambda_{h} \right| < 1$. This is because
 
 However, backwards euler's method also known as implicit euler's method is unconditionally stable. However, this is because
 
