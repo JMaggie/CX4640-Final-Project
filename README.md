@@ -32,7 +32,7 @@ Euler's method, which is a Runge-Kutta Method is the most common explicit method
 
 Euler's method is a simple and straightforward method where the derivative at the current time step is used to estimate the value at the next time step. 
 $$y_{n+1} = y_{n} + h f(t_n,y_n)$$, where
- $$y_n$$ is the numerical approximation of $$y(t_n)$$ at time $$t_n$$, $$h$$ is the time step size, and $$f(t_n, y_n)$$ is the slope of the solution at time $$t_n$$.
+ $y_n$ is the numerical approximation of $$y(t_n)$$ at time $$t_n$$, $$h$$ is the time step size, and $$f(t_n, y_n)$$ is the slope of the solution at time $$t_n$$.
 
 The method can be summarized in the following steps:
 
