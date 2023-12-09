@@ -25,7 +25,7 @@ Title: Time Stepping Methods
 Time-stepping methods, also known as time integration methods or time-marching methods, are numerical techniques used to solve ordinary differential equations (ODEs) or partial differential equations (PDEs) that model dynamic systems evolving over time. These methods discretize the time domain into a sequence of time steps, updating the solution at each time step based on the information from the previous steps. Some of these methods include Euler's Method, Runge-Kutta Methods, Symplectic Methods, Leap-Frog Method, and Crank-Nicolson Method
 
 ## Explicit vs Implicit
-Explicity and Implicit methods are the most common 
+
 
 ## Euler's Method
 Euler's method is the most common explicit method of evaluating ODEs [1]. Euler's method is first order [1]. A method is considered a "first-order method" if its rate of convergence or accuracy is proportional to the size of the discretization parameter raised to the first power. The order of a method is an indicator of how quickly the numerically computed solution approaches the true solution as the step size decreases. Euler's method is an s-step method, which is convergent [3]. In a convergent method, the numerically computed solution approaches the true solution as the step size approaches 0 [1]. A convergent method is consistent and stable [3]. 
@@ -46,8 +46,8 @@ The method can be summarized in the following steps:
 3. **Repeat:**
    - Repeat the iteration until the desired endpoint or time is reached.
 
-### Stability 
-Euler's method is only conditionally stable. To be stable, the step size has to be very small. This can be seen when one observes a linear initial value problem, where $y'(t) = \lambda y(t)$ and $y(0) = y_0$. The solution to this problem is $y(t) = y_0 e^(\lambda t)$. However, if the initial conditions are changed from $y(0) = y_0$ to $y(0) = y_0 + \delta$, the solution becomes $y(t) = (y_0 + delta) e^(\lambda * t) [3]. The graph of $e^(x)$ is an exponential graph with a range of $(0, \inf)$. When $x = 0$, $e^x = 1$. When $x < 0$, $e^x < 1$. When $x > 0$, $e^x > 1$. Thus, when $\lambda <= 0$, a small change in the initial condition would only result in a small change in the solution, making the problem stable. On the contraty, when $\lambda > 0$, a small change in the initial solution would result in a largeg change in the solution, making the problem unstable. Thus, Euler's methos is conditionally stable. To determine how small the step size should be for Euler's method to be stable, we can make the following [3]
+### Stability [2,3]
+Euler's method is only conditionally stable. To be stable, the step size has to be very small. This can be seen when one observes a linear initial value problem, where $y'(t) = \lambda y(t)$ and $y(0) = y_0$. The solution to this problem is $y(t) = y_0 e^(\lambda t)$. However, if the initial conditions are changed from $y(0) = y_0$ to $y(0) = y_0 + \delta$, the solution becomes $y(t) = (y_0 + delta) e^(\lambda * t). The graph of $e^(x)$ is an exponential graph with a range of $(0, \inf)$. When $x = 0$, $e^x = 1$. When $x < 0$, $e^x < 1$. When $x > 0$, $e^x > 1$. Thus, when $\lambda <= 0$, a small change in the initial condition would only result in a small change in the solution, making the problem stable. On the contraty, when $\lambda > 0$, a small change in the initial solution would result in a largeg change in the solution, making the problem unstable. Thus, Euler's methos is conditionally stable. To determine how small the step size should be for Euler's method to be stable, we can make the following
 
 For a given example with $\lambda < 0$, the to be stable, the growth factor would have to be constrained as such $\left| 1 + \lambda_{h} \right| < 1$ to account for amplification of error. One can see the  [1,3]
 
@@ -61,14 +61,6 @@ Euler's method becomees more accurate as step size decreases [2], however, this 
 
 ### Derivation
 There are a few ways Euler's method may be derived. The first is by using numerical forward Euler's Method is known derived from the truncated Taylor's Expansion [1,2]. 
-
-
-
-1. Euler's Method. (October 5, 2023). In Wikipedia. https://en.wikipedia.org/wiki/Euler_method#:~:text=In%20mathematics%20and%20computational%20science,with%20a%20given%20initial%20value.
-2. Zeltkevic, M. (1998) Massachusetts Institute of Technology. https://web.mit.edu/10.001/Web/Course_Notes/Differential_Equations_Notes/node3.html
-3. Illinois Institute of Technology. (n.d). Chapter 4: Stiffness and Stability. http://www.math.iit.edu/~fass/478578_Chapter_4.pdf. 
-4. https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods
-5. https://www.sciencedirect.com/topics/mathematics/runge-kutta-method
    
 ## Runge-Kutta Methods
 
