@@ -41,7 +41,7 @@ The method can be summarized in the following steps:
 
 2. **Iteration:**
    - At each time step $t_n$, use the update formula:
-     $$ y_{n+1} = y_n + h \cdot f(t_n, y_n) $$
+     $ y_{n+1} = y_n + h f(t_n, y_n) $
    - Move to the next time step: $t_{n+1} = t_n + h$.
 
 3. **Repeat:**
