@@ -28,7 +28,7 @@ Time-stepping methods, also known as time integration methods or time-marching m
 Explicity and Implicit methods are the most common 
 
 ## Euler's Method
-Euler's method, which is a Runge-Kutta Method is the most common explicit method of evaluating ODEs [1]. Euler's method is first order [1]. A method is considered a "first-order method" if its rate of convergence or accuracy is proportional to the size of the discretization parameter raised to the first power. The order of a method is an indicator of how quickly the numerically computed solution approaches the true solution as the step size decreases. Euler's method is an s-step method, which is convergent [3]. In a convergent method, the numerically computed solution approaches the true solution as the step size approaches 0 [1]. A convergent method is consistent and stable [3]. 
+Euler's method is the most common explicit method of evaluating ODEs [1]. Euler's method is first order [1]. A method is considered a "first-order method" if its rate of convergence or accuracy is proportional to the size of the discretization parameter raised to the first power. The order of a method is an indicator of how quickly the numerically computed solution approaches the true solution as the step size decreases. Euler's method is an s-step method, which is convergent [3]. In a convergent method, the numerically computed solution approaches the true solution as the step size approaches 0 [1]. A convergent method is consistent and stable [3]. 
 
 Euler's method is a simple and straightforward method where the derivative at the current time step is used to estimate the value at the next time step. 
 $$y_{n+1} = y_{n} + h f(t_n,y_n),$$ 
@@ -47,50 +47,10 @@ The method can be summarized in the following steps:
 3. **Repeat:**
    - Repeat the iteration until the desired endpoint or time is reached.
 
-Euler's method is straightforward to implement and provides a basic understanding of numerical methods for solving ODEs. However, it has limitations, especially for stiff ODEs or problems with rapidly changing solutions, where smaller step sizes may be required to maintain accuracy. More advanced methods, such as Runge-Kutta methods, are often used when higher accuracy is needed.
-
-
-
-
-
-The Euler method is a first-order method, which means that the local error (error per step) is proportional to the square of the step size, and the global error (error at a given time) is proportional to the step size. The Euler method often serves as the basis to construct more complex methods, e.g., predictor–corrector method.
-
-
-
-A psuedocode is given 
-
-...
-$$
-
-function eulerMethod(f, h, t0, y0, N):
-    // Parameters:
-    //   f: The function representing the derivative dy/dt in the ODE
-    //   h: The time step size
-    //   t0: Initial time
-    //   y0: Initial value of the dependent variable y(t0)
-    //   N: Number of steps
-
-    // Initialize arrays to store results
-    initialize arrays t and y with size N+1
-
-    // Set initial values
-    t[0] = t0
-    y[0] = y0
-
-    // Euler's method iteration
-    for i from 1 to N:
-        // Update time and compute the next value using the derivative
-        t[i] = t[i-1] + h
-        y[i] = y[i-1] + h * f(t[i-1], y[i-1])
-
-    // Return the results
-    return t, y
-    
-$$
-...
-
 ### Stability 
-Euler's method is only conditionally stable. To be stable, the step size has to be very small. Stability is reliant on growth factor $\left| 1 + \lambda_{h} \right| < 1$. This is because
+Euler's method is only conditionally stable. To be stable, the step size has to be very small. This can be seen when one observes a linear value problem, where $y'(t) = \lambda y(t)$
+
+For a given example with $\lambda < 0$, the to be stable, the growth factor would have to be constrained as such $\left| 1 + \lambda_{h} \right| < 1$ to account for amplification of error. One can see the 
 
 However, backwards euler's method also known as implicit euler's method is unconditionally stable. However, this is because
 
@@ -98,11 +58,10 @@ However, backwards euler's method also known as implicit euler's method is uncon
 
 ### Accuracy
 
-Becomes more accurate as h decreases
-[2]
+Euler's method becomees more accurate as step size decreases [2], however, this would come with increasing computational cost. [2]
 
 ### Derivation
-The forward Euler's Method is known derived from the truncated Taylor's Expansion [2]
+The forward Euler's Method is known derived from the truncated Taylor's Expansion [2]. 
 
 
 
