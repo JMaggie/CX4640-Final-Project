@@ -100,44 +100,14 @@ The derivation of Runge-Kutta Method can be seen by considering
 
 ## Symplectic Methods
 
-Symplectic methods are a class of numerical integration techniques specifically designed to preserve the symplectic structure of Hamiltonian systems in physics and mechanics. Hamiltonian systems arise in classical mechanics, where they describe the motion of particles subject to conservative forces. The symplectic structure in these systems involves the preservation of certain geometric properties, such as phase space volume, which is crucial for capturing the qualitative behavior of the system accurately.
+Symplectic methods or symphletic integrator (SI) are a class of numerical integration techniques specifically designed to preserve the symplectic structure of Hamiltonian systems in physics and mechanics [7]. Hamiltonian systems arise in classical mechanics, where they describe the motion of particles subject to conservative forces. The symplectic structure in these systems involves the preservation of certain geometric properties, such as phase space volume, which is crucial for capturing the qualitative behavior of the system accurately.
 
-
-Geometric integrator
-
-https://en.wikipedia.org/wiki/Symplectic_integrator
-https://en.wikipedia.org/wiki/Geometric_integrator
-
-A geometric integrator is a type of numerical integration method designed to preserve certain geometric or structural properties of a dynamic system over time. These methods are particularly useful when simulating systems that exhibit symplectic structure, conservation laws, or other geometric properties.
-
-Here are some key characteristics of geometric integrators:
-
-Preservation of Geometric Properties:
-
-Geometric integrators are designed to preserve specific geometric structures or invariants of a system. Examples include conserving energy, momentum, angular momentum, or other quantities that should remain constant in an idealized system.
-Long-Term Stability:
-
-They often exhibit good long-term stability, making them suitable for simulations over extended periods without significant accumulation of numerical errors. This is especially beneficial in problems where stability is crucial, such as in celestial mechanics.
-Symplectic Integration:
-
-Many geometric integrators are symplectic, meaning they preserve the symplectic structure of Hamiltonian systems. Hamiltonian systems are common in classical mechanics and describe systems with conservation laws.
-Structure-Preserving Properties:
-
-Geometric integrators aim to retain the qualitative behavior of the exact solution, even if the numerical solution may deviate quantitatively. This is important for capturing the essential features of a system.
-Applications:
-
-Geometric integrators are commonly used in physics, astronomy, molecular dynamics, and other scientific fields where the preservation of geometric properties is critical for the accuracy of the simulation.
-Examples:
-
-Some examples of geometric integrators include the Verlet algorithm for molecular dynamics, the Stoermer-Verlet method, and various symplectic integrators like the leapfrog method.
-The choice of a geometric integrator depends on the specific geometric properties of the system being simulated. While these methods offer advantages in terms of preserving certain features, they may not always be the most accurate for all types of problems. The trade-off between accuracy and preservation of geometric properties is an important consideration when selecting a numerical integration method for a particular application.
+Symphletic integrator is a subclass of geometric integrator, which is a numerical method designed to preserve the geometric properties associated with the true solution to a differential equation [8].
 
 ## Leapfrog Method
 This is a symplectic integrator often used in physics simulations. It alternates between updating positions and velocities, which can provide good long-term stability for certain systems.
 
-Global Stability
-
-https://young.physics.ucsc.edu/115/leapfrog.pdf
+The leapfrog method is symphletic and has a global stability [6]
 
 ## Adams-Bashforth and Adams-Moulton Methods
 These are explicit methods that use past values to predict future values. They are often used for solving ordinary differential equations.
@@ -154,6 +124,9 @@ These are explicit methods that use past values to predict future values. They a
 3. Illinois Institute of Technology. (n.d). Chapter 4: Stiffness and Stability. http://www.math.iit.edu/~fass/478578_Chapter_4.pdf. 
 4. https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods
 5. https://www.sciencedirect.com/topics/mathematics/runge-kutta-method
+6. https://young.physics.ucsc.edu/115/leapfrog.pdf
+7. https://en.wikipedia.org/wiki/Symplectic_integrator
+8. https://en.wikipedia.org/wiki/Geometric_integrator
    
 
 Time-stepping methods, also known as time integration methods, are numerical techniques used in computational mathematics and physics to solve differential equations over a sequence of discrete time steps. These methods are particularly relevant in simulating dynamic systems, where the behavior evolves over time.
@@ -244,6 +217,29 @@ Time-stepping methods are numerical techniques used to approximate the solution 
 The choice of a time-stepping method depends on the specific characteristics of the problem being solved. Implicit methods are often chosen for stiff problems, while symplectic integrators are useful for Hamiltonian systems where energy conservation is critical. The trade-off between accuracy and stability is crucial, and the choice often involves a compromise based on the characteristics of the system and computational resources available.
 
 In summary, the accuracy and stability of time-stepping methods are influenced by their mathematical foundations, and the choice of method should be guided by the specific requirements and characteristics of the problem at hand.
+
+
+Here are some key characteristics of geometric integrators:
+
+Preservation of Geometric Properties:
+
+Geometric integrators are designed to preserve specific geometric structures or invariants of a system. Examples include conserving energy, momentum, angular momentum, or other quantities that should remain constant in an idealized system.
+Long-Term Stability:
+
+They often exhibit good long-term stability, making them suitable for simulations over extended periods without significant accumulation of numerical errors. This is especially beneficial in problems where stability is crucial, such as in celestial mechanics.
+Symplectic Integration:
+
+Many geometric integrators are symplectic, meaning they preserve the symplectic structure of Hamiltonian systems. Hamiltonian systems are common in classical mechanics and describe systems with conservation laws.
+Structure-Preserving Properties:
+
+Geometric integrators aim to retain the qualitative behavior of the exact solution, even if the numerical solution may deviate quantitatively. This is important for capturing the essential features of a system.
+Applications:
+
+Geometric integrators are commonly used in physics, astronomy, molecular dynamics, and other scientific fields where the preservation of geometric properties is critical for the accuracy of the simulation.
+Examples:
+
+Some examples of geometric integrators include the Verlet algorithm for molecular dynamics, the Stoermer-Verlet method, and various symplectic integrators like the leapfrog method.
+The choice of a geometric integrator depends on the specific geometric properties of the system being simulated. While these methods offer advantages in terms of preserving certain features, they may not always be the most accurate for all types of problems. The trade-off between accuracy and preservation of geometric properties is an important consideration when selecting a numerical integration method for a particular application.
 
 ## Table of Contents
 - [Overview](#Overview)
